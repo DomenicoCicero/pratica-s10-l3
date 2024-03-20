@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Col, Container, Row, Spinner } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const TVShows = () => {
   const [filmsArray, setFilmsArray] = useState([]);
@@ -44,7 +45,9 @@ const TVShows = () => {
             return (
               <Row className="row row-cols-1 row-cols-sm-2 row-cols-lg-4 row-cols-xl-6 mb-4 justify-content-center mt-4">
                 <Col className="col mb-2 text-center px-1" key={film.imdbID}>
-                  <img src={film.Poster} alt={film.Title} className="img-fluid" id="img" />
+                  <Link to={`/movie-details/${film.imdbID}`}>
+                    <img src={film.Poster} alt={film.Title} className="img-fluid" id="img" />
+                  </Link>
                 </Col>
               </Row>
             );
